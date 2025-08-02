@@ -1,4 +1,4 @@
-# CvAngular
+# Cv Angular
 
 I always wanted to create a personal website. Finally, I found the time to create something. This is a work in progress project. Feel free to modify or fork it.
 
