@@ -1,0 +1,9 @@
+@for(education of educations; track $index) {
+  <div class="shadow-xl">
+    <h2>{{education.degree}}</h2>
+    <p>{{education.university}}</p>
+    <p>{{education.thesis}}</p>
+    <p>{{education.thesisDescription ?? "-"}}</p>
+  </div>
+}
+

@@ -1,0 +1,34 @@
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center min-h-[70vh]">
+
+  <!-- Left Side - Description -->
+  <div class="space-y-8">
+    <div>
+      <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+        Hello! I am {{profileInfo.firstName}}  {{profileInfo.lastName}}
+      </h1>
+    </div>
+
+    <div class="space-y-4">
+      <p class="text-lg text-gray-700 leading-relaxed max-w-lg">
+       {{profileInfo.description}}
+      </p>
+    </div>
+  </div>
+
+  <!-- Right Side - Photo with decorative elements -->
+  <div class="flex justify-center lg:justify-end relative">
+    <!-- Background decorative -->
+    <div class="absolute top-0 left-0 w-32 h-32 bg-orange-200 rounded-lg opacity-60 -z-10"></div>
+    <div class="absolute bottom-0 left-1/4 w-24 h-24 bg-orange-300 rounded-lg opacity-40 -z-10"></div>
+
+    <!-- Main photo container -->
+    <div class="relative">
+      <!-- Large rounded photo -->
+      <div class="w-80 h-80 lg:w-96 lg:h-96 rounded-lg overflow-hidden shadow-2xl bg-white p-2">
+        <div class="w-full h-full rounded-lg bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
+          <img src="LucaImage2.png" alt="Luca Bolzani" class="w-full h-full object-cover rounded-lg">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 # CvAngular
 
+I always wanted to create a personal website. Finally, I found the time to create something. This is a work in progress project. Feel free to modify or fork it.
+
+I also did it to refresh myself on the Angular framework.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.3.
 
 ## Development server
