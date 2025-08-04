@@ -2,6 +2,7 @@ import {Component, inject, signal} from '@angular/core';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {ProfileService} from '../../service/profile-service';
 import {Profile} from '../../model/models';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -28,4 +29,5 @@ export class Navbar {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
   }
 
+  protected readonly environment = environment;
 }

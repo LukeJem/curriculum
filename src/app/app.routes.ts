@@ -4,11 +4,12 @@ import {JobExperience} from './component/job-experience/job-experience';
 import {Skill} from './component/skill/skill';
 import {About} from './component/about/about';
 import {Contact} from './component/contact/contact';
+import {environment} from '../environments/environment';
 
 export const routes: Routes = [
   {path: '', component: Home},
-  {path: 'experience', component: JobExperience},
-  {path: 'skills', component: Skill},
-  {path: 'about', component: About},
-  {path: 'contact', component: Contact},
+  {path: environment.prefixPath + 'experience', component: JobExperience},
+  {path: environment.prefixPath + 'skills', component: Skill},
+  {path: environment.prefixPath + 'about', component: About},
+  {path: environment.prefixPath + 'contact', component: Contact},
 ];
