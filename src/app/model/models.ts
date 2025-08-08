@@ -74,4 +74,11 @@ export type Language = {
   certification?: string;
 }
 
+export type SearchType = "JOBS" | "SKILLS";
+
+export interface SearchResult {
+  type: SearchType;
+  searchRes: Job[] | TechKnowledge[]
+}
+
 

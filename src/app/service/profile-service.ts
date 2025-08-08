@@ -48,4 +48,35 @@ export class ProfileService {
     return SKILLS;
   }
 
+  getJobsByTerm(searchTerm: string): Job[] {
+    const searchTermL = searchTerm.toLowerCase();
+    return this.getJobs().filter(job =>{
+      return job.company.toLowerCase().includes(searchTermL) ||
+              job.workingPeriod.toLowerCase().includes(searchTermL) ||
+              job.location?.toLowerCase().includes(searchTermL) ||
+              job.tasks?.find(task => task.toLowerCase().includes(searchTermL)) !== undefined ||
+              job.role.toLowerCase().includes(searchTermL) ||
+              job.toolsFrameworks?.toLowerCase().includes(searchTermL) ||
+              job.customers?.find(customer =>
+                  customer.company.toLowerCase().includes(searchTermL) ||
+                  customer.workingPeriod.toLowerCase().includes(searchTermL) ||
+                  customer.toolsFrameworks?.toLowerCase().includes(searchTermL) ||
+                  customer.tasks?.find(task => task.toLowerCase().includes(searchTermL)) !== undefined
+              )
+      }
+    );
+  }
+
+  getSkillsByTerm(searchTerm: string): TechKnowledge[] {
+    const searchTermL = searchTerm.toLowerCase();
+    return this.getSkills().filter(techKnowledge => {
+      return techKnowledge.name.toLowerCase().includes(searchTermL) ||
+        techKnowledge.technologies.find(tech => tech.toLowerCase().includes(searchTermL)) !== undefined;
+    });
+  }
+
+
+
+
+
 }

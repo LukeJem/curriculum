@@ -1,53 +1,59 @@
-@for (job of jobs; track $index) {
-  <div class="bg-white rounded-lg shadow-md p-8 mb-6">
-    <h2 class="text-3xl font-bold text-gray-800 mb-6">{{job.company}}</h2>
-    <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
-      <div>
-        <h3 class="text-xl font-semibold text-gray-800 mb-4">[{{job.workingPeriod}}] {{job.location}}</h3>
-        <h4 class="mb-3"><span class="text-l font-semibold text-gray-800">Role: </span> <span class="text-lg italic underline">{{job.role}}</span></h4>
-        @if (!job.customers) {
-          <h4 class="text-l font-semibold text-gray-800 mb-2">Main tasks: </h4>
-        }
-
-        <ul class="space-y-3">
-          @for (task of job.tasks; track $index) {
-            <li class="flex items-start">
-              <div class="bg-green-100 rounded-full p-1 mr-3 mt-1">
-                <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                </svg>
-              </div>
-              <span class="text-gray-600">{{task}}</span>
-            </li>
+ <app-search [searchType]="'JOBS'" (searchResEvt) = "getExperiences($event)"></app-search>
+ <div class="pt-8">
+  @for (job of filteredJobs; track $index) {
+    <div class="bg-white rounded-lg shadow-md p-8 mb-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-6">{{job.company}}</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-1 gap-8">
+        <div>
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">[{{job.workingPeriod}}] {{job.location}}</h3>
+          <h4 class="mb-3"><span class="text-l font-semibold text-gray-800">Role: </span> <span class="text-lg italic underline">{{job.role}}</span></h4>
+          @if (!job.customers) {
+            <h4 class="text-l font-semibold text-gray-800 mb-2">Main tasks: </h4>
           }
-        </ul>
-        @if (job.toolsFrameworks) {
-          <h4 class="mt-6"><span class="text-l font-semibold text-gray-800">Other tools and framework: </span> {{job.toolsFrameworks}}</h4>
-        }
 
-        @for (customer of job.customers; track $index) {
-          <h2 class="font-semibold text-gray-800 mt-6">Customer:</h2>
-          <h2 class="ml-2 mb-2">{{customer.company}} [{{customer.workingPeriod}}]</h2>
-          <h2 class="font-semibold text-gray-800">Main tasks:</h2>
-          <ul class="space-y-2">
-            @for (customerTask of customer.tasks; track $index) {
+          <ul class="space-y-3">
+            @for (task of job.tasks; track $index) {
               <li class="flex items-start">
                 <div class="bg-green-100 rounded-full p-1 mr-3 mt-1">
                   <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
                   </svg>
                 </div>
-                <span class="text-gray-600">{{customerTask}}</span>
+                <span class="text-gray-600">{{task}}</span>
               </li>
             }
           </ul>
+          @if (job.toolsFrameworks) {
+            <h4 class="mt-6"><span class="text-l font-semibold text-gray-800">Other tools and framework: </span> {{job.toolsFrameworks}}</h4>
+          }
+
+          @for (customer of job.customers; track $index) {
+            <h2 class="font-semibold text-gray-800 mt-6">Customer:</h2>
+            <h2 class="ml-2 mb-2">{{customer.company}} [{{customer.workingPeriod}}]</h2>
+            <h2 class="font-semibold text-gray-800">Main tasks:</h2>
+            <ul class="space-y-2">
+              @for (customerTask of customer.tasks; track $index) {
+                <li class="flex items-start">
+                  <div class="bg-green-100 rounded-full p-1 mr-3 mt-1">
+                    <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <span class="text-gray-600">{{customerTask}}</span>
+                </li>
+              }
+            </ul>
             @if (customer.toolsFrameworks) {
               <h4 class="mt-6"><span class="text-l font-semibold text-gray-800">Other tools and framework: </span> {{customer.toolsFrameworks}}</h4>
             }
 
-        }
+          }
+        </div>
       </div>
     </div>
-  </div>
-}
+  }
+</div>
+
+
+
 
